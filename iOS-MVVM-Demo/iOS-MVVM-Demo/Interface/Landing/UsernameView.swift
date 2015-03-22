@@ -1,5 +1,5 @@
 //
-//  LoginView.swift
+//  UsernameView.swift
 //  iOS-MVVM-Demo
 //
 //  Created by Bibo on 3/22/15.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LoginView: PeachesUIView,UITextFieldDelegate {
+class UsernameView: PeachesUIView,UITextFieldDelegate {
 
     var userNameTextField : UITextField!
     var displayLabel : UILabel!
@@ -30,7 +30,9 @@ class LoginView: PeachesUIView,UITextFieldDelegate {
     }
     
     func addDisplayLabel() {
-        displayLabel = PeachesUIObjectBuilder.UILabelWithFrame(CGRectMake(30, 100, self.viewWidth()-60, 60), text: "Name will display here", textColor: UIColor.darkGrayColor(), backgroundColor: UIColor.clearColor(), font: UIController.getGillsanLightFontWithSize(16), textAlignment: NSTextAlignment.Center, baseView: self)
+        
+        // create displayLabel and bind it to the share instance of userViewModel's name property
+        displayLabel = PeachesUIObjectBuilder.UILabelWithFrame(CGRectMake(30, 100, self.viewWidth()-60, 60), text: "", textColor: UIColor.darkGrayColor(), backgroundColor: UIColor.clearColor(), font: UIController.getGillsanLightFontWithSize(16), textAlignment: NSTextAlignment.Center, baseView: self)
         var signal : RACSignal = ViewModelController.shared().userViewModel.rac_valuesForKeyPath("name", observer: self)
             signal.subscribeNext { (object: AnyObject!) -> Void in
                 if (object != nil) {
@@ -43,6 +45,7 @@ class LoginView: PeachesUIView,UITextFieldDelegate {
     }
     
     func addUserNameTextField() {
+        // create userNameTextField that is hitting the Github api asking for data on the username entered
         userNameTextField = PeachesUIObjectBuilder.UITextFieldWithFrame(CGRectMake(30, 240, self.viewWidth()-60, 45), text: "", placeHolder: " Enter a GitHub username", font: UIController.getGillsanLightFontWithSize(16), textColor: UIColor.darkGrayColor(), backgroundColor: UIColor.clearColor(), baseView: self)
         userNameTextField.delegate = self
         userNameTextField.becomeFirstResponder()
@@ -51,8 +54,14 @@ class LoginView: PeachesUIView,UITextFieldDelegate {
             (next:AnyObject!) -> () in
             var text = next as NSString
             if (text.length > 0) {
+                //spaces are removed from the url
                 text = text.stringByReplacingOccurrencesOfString(" ", withString: "")
                 UserController.getGitHubProfileWithUsername(text)
+            }
+            else {
+                //Initial setting of display label
+                //Anytime any data is set to show on display it will always communicate through the viewModels
+                ViewModelController.shared().userViewModel.name = "Name will display here"
             }
         }
     }

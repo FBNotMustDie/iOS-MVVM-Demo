@@ -19,18 +19,16 @@ class LandingViewController: PeachesUIViewController {
         addLoginView()
     }
     func addLoginView() {
-        var loginView : LoginView = LoginView(frame: fullScreen())
-        self.view.addSubview(loginView)
-        loginView.alpha = 0
+        
+        //show usernameView as the landing view
+        var usernameView : UsernameView = UsernameView(frame: fullScreen())
+        self.view.addSubview(usernameView)
+        usernameView.alpha = 0
         UIView.animateWithDuration(0.5, animations: { () -> Void in
-            loginView.alpha = 1
+            usernameView.alpha = 1
             }) { (finished:Bool) -> Void in
                 
         }
-    }
-    
-    func oneClickBtnPressed() {
-        UserController.getGitHubProfileWithUsername("BiboMain")
     }
     
     override func didReceiveMemoryWarning() {

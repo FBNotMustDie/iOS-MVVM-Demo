@@ -22,6 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func initAllControllers() {
+        // ViewModelController create Singletons of all the models that are then accessable from everywhere.
         ViewModelController.shared()
     }
 
