@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>0B8ADEF3-B9EE-4F7F-AB45-64C8489E86A3</string>
+	<key>IDESourceControlProjectName</key>
+	<string>iOS-MVVM-Demo</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>45D7F30B0EDF0A7C4DAB44487F463B022188844A</key>
+		<string>https://github.com/BiboMain/iOS-MVVM-Demo.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>iOS-MVVM-Demo/iOS-MVVM-Demo.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>45D7F30B0EDF0A7C4DAB44487F463B022188844A</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/BiboMain/iOS-MVVM-Demo.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>45D7F30B0EDF0A7C4DAB44487F463B022188844A</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>45D7F30B0EDF0A7C4DAB44487F463B022188844A</string>
+			<key>IDESourceControlWCCName</key>
+			<string>iOS-MVVM-Demo</string>
+		</dict>
+	</array>
+</dict>
+</plist>

@@ -15,9 +15,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
+        initAllControllers()
         setupRootViewController ()
         
         return true
+    }
+    
+    func initAllControllers() {
+        ViewModelController.shared()
     }
 
     func setupRootViewController () {

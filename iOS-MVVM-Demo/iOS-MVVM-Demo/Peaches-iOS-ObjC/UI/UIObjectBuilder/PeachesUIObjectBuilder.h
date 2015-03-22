@@ -6,7 +6,6 @@
 //  Copyright (c) 2015 Bibo. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
 @interface PeachesUIObjectBuilder : NSObject

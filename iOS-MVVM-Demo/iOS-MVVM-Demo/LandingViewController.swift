@@ -25,12 +25,12 @@ class LandingViewController: PeachesUIViewController {
         UIView.animateWithDuration(0.5, animations: { () -> Void in
             loginView.alpha = 1
             }) { (finished:Bool) -> Void in
-            loginView.oneClickBtn.addTarget(self, action: Selector("oneClickBtnPressed"), forControlEvents: UIControlEvents.TouchUpInside)
+                
         }
     }
     
     func oneClickBtnPressed() {
-        
+        UserController.getGitHubProfileWithUsername("BiboMain")
     }
     
     override func didReceiveMemoryWarning() {
