@@ -10,16 +10,17 @@
 
 @implementation PeachesQuery
 
-+(void)postDataToURL:(NSString *)url param:(NSDictionary *)param returned:(void (^)(id responseObject))callback {
++(void)postDataToURL:(NSString *)url param:(NSDictionary *)param returned:(void (^)(id responseObject, NSError *error))callback {
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager POST:url parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        callback(responseObject);
+        NSError *error = nil;
+        callback(responseObject,error);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        callback(@{@"error":error});
+        callback(nil,error);
     }];
 }
 
-+(void)cachelessGetFromURL:(NSString *)url param:(NSDictionary *)param isImage:(BOOL)isImage returned:(void (^)(id responseObject))callback {
++(void)cachelessGetFromURL:(NSString *)url param:(NSDictionary *)param isImage:(BOOL)isImage returned:(void (^)(id responseObject, NSError *error))callback {
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager.requestSerializer setCachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData];
     if (isImage) {
@@ -29,13 +30,14 @@
         manager.responseSerializer = [AFJSONResponseSerializer serializer];
     }
     [manager GET:url parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        callback(responseObject);
+        NSError *error = nil;
+        callback(responseObject,error);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        callback(@{@"error":error});
+        callback(nil,error);
     }];
 }
 
-+(void)getFromURL:(NSString *)url param:(NSDictionary *)param cachePolicy:(NSURLRequestCachePolicy)cachePolicy cacheTimeout:(NSTimeInterval)interval isImage:(BOOL)isImage returned:(void (^)(id responseObject))callback {
++(void)getFromURL:(NSString *)url param:(NSDictionary *)param cachePolicy:(NSURLRequestCachePolicy)cachePolicy cacheTimeout:(NSTimeInterval)interval isImage:(BOOL)isImage returned:(void (^)(id responseObject, NSError *error))callback {
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager.requestSerializer setCachePolicy:cachePolicy];
     [manager.requestSerializer setTimeoutInterval:interval];
@@ -46,9 +48,10 @@
         manager.responseSerializer = [AFJSONResponseSerializer serializer];
     }
     [manager GET:url parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        callback(responseObject);
+        NSError *error = nil;
+        callback(responseObject,error);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        callback(@{@"error":error});
+        callback(nil,error);
     }];
 }
 
