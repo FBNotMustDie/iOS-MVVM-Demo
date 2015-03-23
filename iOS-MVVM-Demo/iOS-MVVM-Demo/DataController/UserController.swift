@@ -14,9 +14,14 @@ class UserController: NSObject {
         var url : NSString! = "https://api.github.com/users/" + userName
         PeachesQuery.cachelessGetFromURL(url, param: nil, isImage: false) { (responseObject:AnyObject!) -> Void in
             if (responseObject != nil) {
-                let error : NSString? = responseObject["error"] as? NSString
+                let error : NSError? = responseObject["error"] as? NSError
                 if (error != nil) {
-                    ViewModelController.shared().userViewModel.name = "Github error: \(error)"
+                    if(error?.code == -1011) {
+                        ViewModelController.shared().userViewModel.name = "username not found"
+                    }
+                    else {
+                        ViewModelController.shared().userViewModel.name = "github api limit reached"
+                    }
                 }
                 else {
                     let name : NSString? = responseObject["name"] as? NSString
@@ -24,12 +29,12 @@ class UserController: NSObject {
                         ViewModelController.shared().userViewModel.name = name
                     }
                     else {
-                        ViewModelController.shared().userViewModel.name = "no name"
+                        ViewModelController.shared().userViewModel.name = "no name stored for this username"
                     }
                 }
             }
             else {
-                ViewModelController.shared().userViewModel.name = "no response"
+                ViewModelController.shared().userViewModel.name = "no response from github"
             }
         }
     }

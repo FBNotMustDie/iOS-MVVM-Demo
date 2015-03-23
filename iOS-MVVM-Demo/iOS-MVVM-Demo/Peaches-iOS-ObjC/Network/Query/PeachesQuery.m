@@ -15,7 +15,7 @@
     [manager POST:url parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
         callback(responseObject);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        callback(@{@"error":error.localizedDescription});
+        callback(@{@"error":error});
     }];
 }
 
@@ -31,7 +31,7 @@
     [manager GET:url parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
         callback(responseObject);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        callback(@{@"error":error.localizedDescription});
+        callback(@{@"error":error});
     }];
 }
 
@@ -48,7 +48,7 @@
     [manager GET:url parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
         callback(responseObject);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        callback(@{@"error":error.localizedDescription});
+        callback(@{@"error":error});
     }];
 }
 
