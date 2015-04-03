@@ -8,10 +8,11 @@
 
 import UIKit
 
-class UsernameView: PeachesUIView,UITextFieldDelegate {
+class UsernameView: PeachesUIView {
 
-    var userNameTextField : UITextField!
-    var displayLabel : UILabel!
+    
+    var displayView : NameDisplayView!
+    var usernameInputTextField : UsernameInputTextField!
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -25,49 +26,17 @@ class UsernameView: PeachesUIView,UITextFieldDelegate {
     
     func setupView() {
         self.backgroundColor = UIColor.whiteColor()
-        addDisplayLabel()
+        addDisplayView()
         addUserNameTextField()
     }
     
-    func addDisplayLabel() {
-        
-        // create displayLabel and bind it to the share instance of userViewModel's name property
-        
-        displayLabel = PeachesUIObjectBuilder.UILabelWithFrame(CGRectMake(30, 100, self.viewWidth()-60, 60), text: "", textColor: UIColor.darkGrayColor(), backgroundColor: UIColor.clearColor(), font: UIFont(gillsansLightWithSize: 16), textAlignment: NSTextAlignment.Center, baseView: self)
-        var signal : RACSignal = UserController.shared().userViewModel.rac_valuesForKeyPath("name", observer: self)
-            signal.subscribeNext { (object: AnyObject!) -> Void in
-                if (object != nil) {
-                    let name : NSString! = object as NSString!
-                    if (name.length > 0) {
-                        self.displayLabel.text = name
-                    }
-                    else {
-                        self.displayLabel.text = "Name will display here"
-                    }
-                }
-        }
+    func addDisplayView() {
+        displayView = NameDisplayView(frame: CGRectMake(30, 100, self.viewWidth()-60, 60))
+        self.addSubview(displayView)
     }
     
     func addUserNameTextField() {
-        
-        // create userNameTextField that is hitting the Github api asking for data on the username entered
-        
-        userNameTextField = PeachesUIObjectBuilder.UITextFieldWithFrame(CGRectMake(30, 240, self.viewWidth()-60, 45), text: "", placeHolder: " Enter a GitHub username", font: UIFont(gillsansLightWithSize: 16), textColor: UIColor.darkGrayColor(), backgroundColor: UIColor.clearColor(), baseView: self)
-        userNameTextField.delegate = self
-        userNameTextField.becomeFirstResponder()
-        
-        userNameTextField.rac_textSignal().subscribeNext {
-            (next:AnyObject!) -> () in
-            var text = next as NSString
-            if (text.length > 0) {
-                //spaces are removed from the url
-                text = text.stringByReplacingOccurrencesOfString(" ", withString: "")
-                UserController.getGitHubProfileWithUsername(text)
-            }
-            else {
-                //Reset if textField is empty
-                UserController.shared().userViewModel.name = ""
-            }
-        }
+        usernameInputTextField = UsernameInputTextField(frame: CGRectMake(30, 240, self.viewWidth()-60, 45))
+        self.addSubview(usernameInputTextField)
     }
 }

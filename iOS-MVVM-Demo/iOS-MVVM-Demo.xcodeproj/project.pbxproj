@@ -20,6 +20,8 @@
 		1B58A9C41ACEDB3A00C3A187 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B58A9C31ACEDB3A00C3A187 /* UserController.swift */; };
 		1B58A9CA1ACEDC7800C3A187 /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B58A9C91ACEDC7800C3A187 /* UserModel.m */; };
 		1B58A9D21ACEDD9700C3A187 /* UIFont+Custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B58A9D11ACEDD9700C3A187 /* UIFont+Custom.m */; };
+		1B58A9D51ACEE6D300C3A187 /* NameDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B58A9D41ACEE6D300C3A187 /* NameDisplayView.swift */; };
+		1B58A9D71ACEE7A000C3A187 /* UsernameInputTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B58A9D61ACEE7A000C3A187 /* UsernameInputTextField.swift */; };
 		386587144F78EA7E00DE2FB0 /* libPods-iOS-MVVM-Demo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2222FE1307EBDF8AC3A8ABA3 /* libPods-iOS-MVVM-Demo.a */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +66,8 @@
 		1B58A9C91ACEDC7800C3A187 /* UserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserModel.m; path = DataModels/User/UserModel.m; sourceTree = "<group>"; };
 		1B58A9D01ACEDD9700C3A187 /* UIFont+Custom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIFont+Custom.h"; path = "Catagories/UIFont+Custom.h"; sourceTree = "<group>"; };
 		1B58A9D11ACEDD9700C3A187 /* UIFont+Custom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIFont+Custom.m"; path = "Catagories/UIFont+Custom.m"; sourceTree = "<group>"; };
+		1B58A9D41ACEE6D300C3A187 /* NameDisplayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameDisplayView.swift; sourceTree = "<group>"; };
+		1B58A9D61ACEE7A000C3A187 /* UsernameInputTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsernameInputTextField.swift; sourceTree = "<group>"; };
 		2222FE1307EBDF8AC3A8ABA3 /* libPods-iOS-MVVM-Demo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iOS-MVVM-Demo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E74803487BEE368890AF576 /* Pods-iOS-MVVM-Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS-MVVM-Demo.release.xcconfig"; path = "Pods/Target Support Files/Pods-iOS-MVVM-Demo/Pods-iOS-MVVM-Demo.release.xcconfig"; sourceTree = "<group>"; };
 		E145A6468B3BF13219DE70B0 /* Pods-iOS-MVVM-Demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS-MVVM-Demo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iOS-MVVM-Demo/Pods-iOS-MVVM-Demo.debug.xcconfig"; sourceTree = "<group>"; };
@@ -249,6 +253,8 @@
 			children = (
 				17964E5B1ABF167B000DB2E6 /* LandingViewController.swift */,
 				17964E5C1ABF167B000DB2E6 /* UsernameView.swift */,
+				1B58A9D41ACEE6D300C3A187 /* NameDisplayView.swift */,
+				1B58A9D61ACEE7A000C3A187 /* UsernameInputTextField.swift */,
 			);
 			path = Landing;
 			sourceTree = "<group>";
@@ -421,8 +427,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B58A9D71ACEE7A000C3A187 /* UsernameInputTextField.swift in Sources */,
 				17964E4D1ABEBE03000DB2E6 /* PeachesQuery.m in Sources */,
 				1B58A9C41ACEDB3A00C3A187 /* UserController.swift in Sources */,
+				1B58A9D51ACEE6D300C3A187 /* NameDisplayView.swift in Sources */,
 				1B58A9CA1ACEDC7800C3A187 /* UserModel.m in Sources */,
 				17964E141ABEA82B000DB2E6 /* PeachesUIView.m in Sources */,
 				17964E1B1ABEAA80000DB2E6 /* PeachesUIViewController.m in Sources */,

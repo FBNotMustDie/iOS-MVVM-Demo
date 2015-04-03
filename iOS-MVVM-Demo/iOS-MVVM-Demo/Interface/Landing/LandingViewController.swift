@@ -23,12 +23,6 @@ class LandingViewController: PeachesUIViewController {
         //show usernameView as the landing view
         var usernameView : UsernameView = UsernameView(frame: fullScreen())
         self.view.addSubview(usernameView)
-        usernameView.alpha = 0
-        UIView.animateWithDuration(0.5, animations: { () -> Void in
-            usernameView.alpha = 1
-            }) { (finished:Bool) -> Void in
-                
-        }
     }
     
     override func didReceiveMemoryWarning() {
