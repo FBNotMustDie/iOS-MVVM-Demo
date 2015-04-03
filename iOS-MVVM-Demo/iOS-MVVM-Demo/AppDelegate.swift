@@ -15,14 +15,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
-        initAllControllers()
+        initDataControllers() // All models and viewModels exist as shared instance Singletons inside data controllers.
+        
         setupRootViewController ()
         
         return true
     }
     
-    func initAllControllers() {
-        // ViewModelController create Singletons of all the models that are then accessable from everywhere.
+    func initDataControllers() {
         UserController.shared()
     }
 

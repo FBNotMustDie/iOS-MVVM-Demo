@@ -11,6 +11,7 @@ import UIKit
 class UserController: NSObject {
 
     var userViewModel : UserViewModel!
+    var userModel : UserModel!
     
     class func shared() -> UserController {
         struct Static {
@@ -25,6 +26,7 @@ class UserController: NSObject {
     
     override init() {
         userViewModel = UserViewModel()
+        userModel = UserModel()
     }
     
     class func getGitHubProfileWithUsername (userName : NSString) {
@@ -39,9 +41,9 @@ class UserController: NSObject {
                 }
             }
             else {
-                let name : NSString? = responseObject["name"] as? NSString
-                if (name != nil) {
-                    UserController.shared().userViewModel.name = name
+                var userModel : UserModel = UserModel(dictionary: responseObject as NSDictionary)
+                if (userModel.name != nil) {
+                    UserController.shared().userViewModel.name = userModel.name
                 }
                 else {
                     UserController.shared().userViewModel.name = "no name stored for this username"

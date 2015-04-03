@@ -32,6 +32,7 @@ class UsernameView: PeachesUIView,UITextFieldDelegate {
     func addDisplayLabel() {
         
         // create displayLabel and bind it to the share instance of userViewModel's name property
+        
         displayLabel = PeachesUIObjectBuilder.UILabelWithFrame(CGRectMake(30, 100, self.viewWidth()-60, 60), text: "", textColor: UIColor.darkGrayColor(), backgroundColor: UIColor.clearColor(), font: UIFont(gillsansLightWithSize: 16), textAlignment: NSTextAlignment.Center, baseView: self)
         var signal : RACSignal = UserController.shared().userViewModel.rac_valuesForKeyPath("name", observer: self)
             signal.subscribeNext { (object: AnyObject!) -> Void in
@@ -40,12 +41,17 @@ class UsernameView: PeachesUIView,UITextFieldDelegate {
                     if (name.length > 0) {
                         self.displayLabel.text = name
                     }
+                    else {
+                        self.displayLabel.text = "Name will display here"
+                    }
                 }
         }
     }
     
     func addUserNameTextField() {
+        
         // create userNameTextField that is hitting the Github api asking for data on the username entered
+        
         userNameTextField = PeachesUIObjectBuilder.UITextFieldWithFrame(CGRectMake(30, 240, self.viewWidth()-60, 45), text: "", placeHolder: " Enter a GitHub username", font: UIFont(gillsansLightWithSize: 16), textColor: UIColor.darkGrayColor(), backgroundColor: UIColor.clearColor(), baseView: self)
         userNameTextField.delegate = self
         userNameTextField.becomeFirstResponder()
@@ -59,9 +65,8 @@ class UsernameView: PeachesUIView,UITextFieldDelegate {
                 UserController.getGitHubProfileWithUsername(text)
             }
             else {
-                //Initial setting of display label
-                //Anytime any data is set to show on display it will always communicate through the viewModels
-                UserController.shared().userViewModel.name = "Name will display here"
+                //Reset if textField is empty
+                UserController.shared().userViewModel.name = ""
             }
         }
     }
