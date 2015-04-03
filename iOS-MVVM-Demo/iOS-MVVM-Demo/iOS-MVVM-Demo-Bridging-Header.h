@@ -3,5 +3,8 @@
 //
 
 #import "Peaches.h"
-#import "ViewModelController.h"
 #import <ReactiveCocoa.h>
+
+#import "UserViewModel.h"
+#import "DataModels.h"
+#import "UIFont+Custom.h"
