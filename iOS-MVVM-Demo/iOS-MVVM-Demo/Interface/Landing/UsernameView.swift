@@ -12,7 +12,7 @@ class UsernameView: PeachesUIView {
 
     
     var displayView : NameDisplayView!
-    var usernameInputTextField : UsernameInputTextField!
+    var usernameInputTextField : UsernameInputTextFieldView!
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -36,7 +36,7 @@ class UsernameView: PeachesUIView {
     }
     
     func addUserNameTextField() {
-        usernameInputTextField = UsernameInputTextField(frame: CGRectMake(30, 240, self.viewWidth()-60, 45))
+        usernameInputTextField = UsernameInputTextFieldView(frame: CGRectMake(30, 240, self.viewWidth()-60, 45))
         self.addSubview(usernameInputTextField)
     }
 }

@@ -4,17 +4,12 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Pods-iOS-MVVM-Demo-AFNetworking.xcscheme</key>
+		<key>Pods-ReactiveCocoa.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-iOS-MVVM-Demo-ReactiveCocoa.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-iOS-MVVM-Demo.xcscheme</key>
+		<key>Pods.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -22,42 +17,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>223EFA7DFC4E724DAC912C2A</key>
+		<key>7B291805DC06F455B10EAADF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>440F537287674A9BC0FACAB1</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>66282DC4C003677D53D1DA1E</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>775251CD0C1F4004DF78DDF3</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>900C2137F89A419D86DBE157</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>CCB46971C8EAEAE0B5B32222</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>D58B422602F73458163A78C1</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>E4CDBD0054E62EB3128271FC</key>
+		<key>E321736F78519054D4A297B1</key>
 		<dict>
 			<key>primary</key>
 			<true/>

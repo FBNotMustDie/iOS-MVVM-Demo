@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <AFNetworking.h>
+#import "SimpleNetworking.h"
 
 @interface PeachesQuery : NSObject
 

@@ -10,6 +10,8 @@
 	<string>iOS-MVVM-Demo</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
+		<key>416BDBA5430A8E60344DB94E211B3FF0B4938B78</key>
+		<string>https://github.com/BiboMain/SimpleNetworking.git</string>
 		<key>45D7F30B0EDF0A7C4DAB44487F463B022188844A</key>
 		<string>https://github.com/BiboMain/iOS-MVVM-Demo.git</string>
 	</dict>
@@ -17,6 +19,8 @@
 	<string>iOS-MVVM-Demo/iOS-MVVM-Demo.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
+		<key>416BDBA5430A8E60344DB94E211B3FF0B4938B78</key>
+		<string>../../iOS-MVVM-Demo/SimpleNetworking/</string>
 		<key>45D7F30B0EDF0A7C4DAB44487F463B022188844A</key>
 		<string>../..</string>
 	</dict>
@@ -35,6 +39,14 @@
 			<string>45D7F30B0EDF0A7C4DAB44487F463B022188844A</string>
 			<key>IDESourceControlWCCName</key>
 			<string>iOS-MVVM-Demo</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>416BDBA5430A8E60344DB94E211B3FF0B4938B78</string>
+			<key>IDESourceControlWCCName</key>
+			<string>SimpleNetworking</string>
 		</dict>
 	</array>
 </dict>

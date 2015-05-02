@@ -11,48 +11,64 @@
 @implementation PeachesQuery
 
 +(void)postDataToURL:(NSString *)url param:(NSDictionary *)param returned:(void (^)(id responseObject, NSError *error))callback {
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    [manager POST:url parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSError *error = nil;
-        callback(responseObject,error);
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        callback(nil,error);
+    [SimpleNetworking postJsonToURL:url param:param returned:^(id responseObject, NSError *error) {
+        if (error) {
+            callback(nil,error);
+        }
+        else {
+            NSError *error = nil;
+            callback(responseObject,error);
+        }
     }];
 }
-
 +(void)cachelessGetFromURL:(NSString *)url param:(NSDictionary *)param isImage:(BOOL)isImage returned:(void (^)(id responseObject, NSError *error))callback {
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    [manager.requestSerializer setCachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData];
     if (isImage) {
-        manager.responseSerializer = [AFImageResponseSerializer serializer];
+        [SimpleNetworking getImageCachelessFromURL:url param:param returned:^(UIImage *responseImage, NSError *error) {
+            if (error) {
+                callback(nil,error);
+            }
+            else {
+                NSError *error = nil;
+                callback(responseImage,error);
+            }
+        }];
     }
     else {
-        manager.responseSerializer = [AFJSONResponseSerializer serializer];
+        [SimpleNetworking getJsonCachelessFromURL:url param:param returned:^(id responseObject, NSError *error) {
+            if (error) {
+                callback(nil,error);
+            }
+            else {
+                NSError *error = nil;
+                callback(responseObject,error);
+            }
+        }];
     }
-    [manager GET:url parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSError *error = nil;
-        callback(responseObject,error);
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        callback(nil,error);
-    }];
 }
 
 +(void)getFromURL:(NSString *)url param:(NSDictionary *)param cachePolicy:(NSURLRequestCachePolicy)cachePolicy cacheTimeout:(NSTimeInterval)interval isImage:(BOOL)isImage returned:(void (^)(id responseObject, NSError *error))callback {
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    [manager.requestSerializer setCachePolicy:cachePolicy];
-    [manager.requestSerializer setTimeoutInterval:interval];
     if (isImage) {
-        manager.responseSerializer = [AFImageResponseSerializer serializer];
+        [SimpleNetworking getImageFromURL:url param:param cachePolicy:cachePolicy cacheTimeout:interval returned:^(UIImage *responseImage, NSError *error) {
+            if (error) {
+                callback(nil,error);
+            }
+            else {
+                NSError *error = nil;
+                callback(responseImage,error);
+            }
+        }];
     }
     else {
-        manager.responseSerializer = [AFJSONResponseSerializer serializer];
+        [SimpleNetworking getJsonFromURL:url param:param cachePolicy:cachePolicy cacheTimeout:interval returned:^(id responseObject, NSError *error) {
+            if (error) {
+                callback(nil,error);
+            }
+            else {
+                NSError *error = nil;
+                callback(responseObject,error);
+            }
+        }];
     }
-    [manager GET:url parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSError *error = nil;
-        callback(responseObject,error);
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        callback(nil,error);
-    }];
 }
 
 @end
