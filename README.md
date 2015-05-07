@@ -1,7 +1,5 @@
 # iOS-MVVM-Demo
-iOS Demo for Model-View-ViewModel pattern using GIthub API
 
-## How To Get Started
+iOS Demo implementing Observers on Model-View-ViewModel using only apple's native API(KeyValueObserving, NSURLSession)
 
-- [Download](https://github.com/BiboMain/iOS-MVVM-Demo/archive/master.zip) and open iOS-MVVM-Demo.xcworkspace
-- pod install
+updated for xcode 6.3/swift 1.2
