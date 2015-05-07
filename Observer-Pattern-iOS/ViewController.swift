@@ -11,19 +11,24 @@ import UIKit
 class ViewController: UIViewController, UITextFieldDelegate {
 
     var displayLabel : UILabel!
+    var inputTextField : UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.view.backgroundColor = UIColor.whiteColor()
-        
-        addDisplayLabel()
-        addInputTextField()
-        addObservers()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        setupVC()
+        beginObserve(ObserverController.shared(), keyPath: "displayViewModel")
     }
     
     override func viewWillDisappear(animated: Bool) {
-        self.removeObservers()
+        endObservation(ObserverController.shared(), keyPath: "displayViewModel")
+    }
+    
+    func setupVC() {
+        addDisplayLabel()
+        addInputTextField()
     }
     
     func addDisplayLabel() {
@@ -35,7 +40,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
     func addInputTextField() {
-        var inputTextField = UITextField(frame: CGRectMake(self.view.bounds.size.width/2-140, self.view.bounds.size.height-310, 280, 40))
+        inputTextField = UITextField(frame: CGRectMake(self.view.bounds.size.width/2-140, self.view.bounds.size.height-310, 280, 40))
         inputTextField.placeholder = " enter github username"
         inputTextField.borderStyle = UITextBorderStyle.RoundedRect
         inputTextField.font = UIFont(name: "Gillsans-Light", size: 16)
@@ -44,16 +49,18 @@ class ViewController: UIViewController, UITextFieldDelegate {
         inputTextField.becomeFirstResponder()
     }
     
-    func addObservers() {
-        ObserverController.shared().addObserver(self, forKeyPath: "displayViewModel", options: NSKeyValueObservingOptions.New | NSKeyValueObservingOptions.Old | NSKeyValueObservingOptions.Initial, context: nil)
-    }
-    
-    func removeObservers() {
-        ObserverController.shared().removeObserver(self, forKeyPath: "displayViewModel", context: nil)
-    }
-    
     func textFieldValueChanged(textField: UITextField) {
         ObserverController.shared().getNameForUsername(textField.text)
+    }
+    
+    func beginObserve(object:NSObject, keyPath:String) {
+        object.addObserver(self, forKeyPath: keyPath, options: NSKeyValueObservingOptions.New | NSKeyValueObservingOptions.Old | NSKeyValueObservingOptions.Initial, context: nil)
+    }
+    
+    func endObservation(object:NSObject, keyPath:String) {
+        if (object.observationInfo != nil) {
+            object.removeObserver(self, forKeyPath: keyPath, context: nil)
+        }
     }
     
     override func observeValueForKeyPath(keyPath: String, ofObject object: AnyObject, change: [NSObject : AnyObject], context: UnsafeMutablePointer<Void>) {

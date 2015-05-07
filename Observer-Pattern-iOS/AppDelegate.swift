@@ -23,6 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func setupRootVC() {
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
         window?.rootViewController = ViewController()
+        window?.backgroundColor = UIColor.whiteColor()
         window?.clipsToBounds = true;
         window?.makeKeyAndVisible()
     }
