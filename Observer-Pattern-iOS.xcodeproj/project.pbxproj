@@ -12,7 +12,6 @@
 		17C69C7B1AFB15A9006EA05E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C69C7A1AFB15A9006EA05E /* AppDelegate.swift */; };
 		17C69C7D1AFB15A9006EA05E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C69C7C1AFB15A9006EA05E /* ViewController.swift */; };
 		17C69C821AFB15A9006EA05E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17C69C811AFB15A9006EA05E /* Images.xcassets */; };
-		17C69C851AFB15A9006EA05E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17C69C831AFB15A9006EA05E /* LaunchScreen.xib */; };
 		17C69C911AFB15A9006EA05E /* Observer_Pattern_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C69C901AFB15A9006EA05E /* Observer_Pattern_iOSTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -34,7 +33,6 @@
 		17C69C7A1AFB15A9006EA05E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		17C69C7C1AFB15A9006EA05E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		17C69C811AFB15A9006EA05E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		17C69C841AFB15A9006EA05E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		17C69C8A1AFB15A9006EA05E /* Observer-Pattern-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Observer-Pattern-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		17C69C8F1AFB15A9006EA05E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		17C69C901AFB15A9006EA05E /* Observer_Pattern_iOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observer_Pattern_iOSTests.swift; sourceTree = "<group>"; };
@@ -84,7 +82,6 @@
 				17635DBC1AFB21260079D1B0 /* ObserverController.swift */,
 				17635DBE1AFB35AF0079D1B0 /* DisplayViewModel.swift */,
 				17C69C811AFB15A9006EA05E /* Images.xcassets */,
-				17C69C831AFB15A9006EA05E /* LaunchScreen.xib */,
 				17C69C781AFB15A9006EA05E /* Supporting Files */,
 			);
 			path = "Observer-Pattern-iOS";
@@ -195,7 +192,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				17C69C851AFB15A9006EA05E /* LaunchScreen.xib in Resources */,
 				17C69C821AFB15A9006EA05E /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -238,17 +234,6 @@
 			targetProxy = 17C69C8B1AFB15A9006EA05E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		17C69C831AFB15A9006EA05E /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				17C69C841AFB15A9006EA05E /* Base */,
-			);
-			name = LaunchScreen.xib;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		17C69C921AFB15A9006EA05E /* Debug */ = {

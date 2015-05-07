@@ -22,6 +22,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
         addObservers()
     }
     
+    override func viewWillDisappear(animated: Bool) {
+        self.removeObservers()
+    }
+    
     func addDisplayLabel() {
         displayLabel = UILabel(frame: CGRectMake(self.view.bounds.size.width/2-150, 20, 300, 100))
         displayLabel.textAlignment = NSTextAlignment.Center;
@@ -42,6 +46,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     func addObservers() {
         ObserverController.shared().addObserver(self, forKeyPath: "displayViewModel", options: NSKeyValueObservingOptions.New | NSKeyValueObservingOptions.Old | NSKeyValueObservingOptions.Initial, context: nil)
+    }
+    
+    func removeObservers() {
+        ObserverController.shared().removeObserver(self, forKeyPath: "displayViewModel", context: nil)
     }
     
     func textFieldValueChanged(textField: UITextField) {
